@@ -2,7 +2,8 @@
 
 No::No()
 {
-
+    proximo=nullptr;
+    dados=nullptr;
 }
 void No::Setproximo(No* x)
 {

@@ -6,11 +6,16 @@ Listaencadeada::Listaencadeada()
 }
 bool Listaencadeada::inserir(Item* x)
 {
-    if(x==0) return false;
+    if(x==0)
+    {
+        return false;
+    }
 
     Item* busca=consultar(x);
-
-    if(busca!=0) return false;
+    if(busca!=0)
+    {
+        return false;
+    }
 
     No* z=No::montano(x);
     if(vazia())
@@ -18,11 +23,11 @@ bool Listaencadeada::inserir(Item* x)
         inicio=final=z;
         return true;
     }
+
     final->Setproximo(z);
     final=z;
     return true;
 }
-
 Item* Listaencadeada::retirar(Item* x)
 {
     if(x==0||vazia())return 0;
@@ -60,7 +65,38 @@ bool Listaencadeada::vazia()const
     return (inicio==0);
 }
 
-std::string Listaencadeada::getlista()
+std::string Listaencadeada::getlista()const
 {
+    if(vazia())return "Lista vazia!\n";
+
+    std::string aux=" ";
+    No* p=inicio;
+    while(p!=0)
+    {
+        aux=aux+p->getdados()->getitem();
+        aux=aux+"\n";
+    }
+
+    return aux;
+}
+
+void Listaencadeada::eliminarprimeiro()
+{
+    if(vazia()) return;
+
+    No *p=inicio;
+    inicio=inicio->getproximo();
+    Item *x=No::desmontano(p);
+    delete x;
 
 }
+
+Listaencadeada::~Listaencadeada()
+{
+    while(!vazia())
+    {
+        eliminarprimeiro();
+    }
+
+}
+

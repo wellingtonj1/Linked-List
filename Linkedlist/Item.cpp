@@ -14,7 +14,7 @@ std::string Item::getnome()
     return nome;
 }
 
-bool Item::setfone(std::string x)
+void Item::setfone(std::string x)
 {
     fone=x;
 }
@@ -23,3 +23,9 @@ std::string Item::getfone()
 {
     return fone;
 }
+
+std::string Item::getitem()
+{
+    return nome+"\n"+fone;
+}
+

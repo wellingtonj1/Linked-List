@@ -11,7 +11,8 @@ public:
     void setnome(std::string);
     std::string getnome();
     std::string getfone();
-    bool setfone(std::string);
+    void setfone(std::string);
+    std::string getitem();
 };
 
 #endif // ITEM_H

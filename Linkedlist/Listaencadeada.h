@@ -11,7 +11,9 @@ public:
     Item* retirar(Item*);
     Item* consultar(Item*);
     bool vazia()const;
-    std::string getlista();
+    std::string getlista()const;
+    void eliminarprimeiro();
+    ~Listaencadeada();
 };
 
 #endif // LISTAENCADEADA_H
